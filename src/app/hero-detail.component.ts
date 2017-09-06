@@ -4,7 +4,7 @@ import { Hero } from './hero';
 @Component({
     selector: 'hero-detail',
     template: `
-        <div *ngIf="selectedHero">
+        <div *ngIf="hero">
             <h2>{{selectedHero.name}} details!</h2>
             <div><label>id: </label>{{selectedHero.id}}</div>
             <div>
