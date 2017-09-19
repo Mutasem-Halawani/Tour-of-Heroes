@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-// import { HeroDetailComponent } from './hero-detail.component';
+import { HeroDetailComponent } from './hero-detail.component';
 // import { HeroesComponent } from './heroes.component';
 
 // import { HeroService } from './hero.service';
@@ -39,7 +39,7 @@ const appRoutes: Routes =[
 @NgModule({
   declarations: [
     AppComponent,
-    // HeroDetailComponent,
+    HeroDetailComponent,
     // HeroesComponent
   ],
   imports: [
