@@ -1,34 +1,48 @@
 import { Component } from '@angular/core';
-import { Hero } from './hero';
-
-import { HeroService } from './hero.service';
 
 @Component({
     selector:'my-app',
-    templateUrl:'./app.component.html', 
-    styleUrls: ['./app.component.css'],
-    providers: [HeroService]
+    template: `
+        <h1>{{title}}</h1>
+        <nav>
+            <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+            <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        </nav>
+        <router-outlet></router-outlet>
+    `, 
+    styles: [`
+    h1 {
+        font-size: 1.2em;
+        color: #999;
+        margin-bottom: 0;
+      }
+      h2 {
+        font-size: 2em;
+        margin-top: 0;
+        padding-top: 0;
+      }
+      nav a {
+        padding: 5px 10px;
+        text-decoration: none;
+        margin-top: 10px;
+        display: inline-block;
+        background-color: #eee;
+        border-radius: 4px;
+      }
+      nav a:visited, a:link {
+        color: #607D8B;
+      }
+      nav a:hover {
+        color: #039be5;
+        background-color: #CFD8DC;
+      }
+      nav a.active {
+        color: #039be5;
+      }
+    `],
+    providers: []
 })
 
 export class AppComponent{
-
-    constructor(private heroService: HeroService){}
-
-    ngOnInit(): void{
-        this.getHeroes();
-    }
-    
     title = "Tour of Heroes";
-
-    selectedHero: Hero;
-    
-    heroes: Hero[];
-
-    onSelect(hero: Hero): void{
-        this.selectedHero = hero;
-    }
-
-    getHeroes(): void{
-        this.heroService.getHeroes().then(heroes => this.heroes = heroes);
-    }
 }
